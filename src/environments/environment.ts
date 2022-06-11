@@ -3,7 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  API_URL: 'https://localhost:44313/api',
+  ClaimRole: 'http://schemas.microsoft.com/ws/2008/06/identity/claims/role',
+  ClaimUserData:
+    'http://schemas.microsoft.com/ws/2008/06/identity/claims/userdata',
+  ClaimEmailAddress:
+    'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress',
+  ClaimName: 'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name',
+  ClaimLastName:
+    'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname',
+  ClaimId: 'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sid',
 };
 
 /*

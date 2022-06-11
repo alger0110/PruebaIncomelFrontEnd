@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="d-flex justify-content-center">
+    <div class="row initial">
+      <div class="col square">
+        <div class="d-flex justify-content-center">
+          <h1>Iniciar Sesión</h1>
+        </div>
+
+        <form [formGroup]="form" (ngSubmit)="login($event)">
+          <div class="formlogin row">
+            <div class="mb-3">
+              <label class="text-muted" for="useroralias">Usuario</label>
+              <input
+                type="text"
+                class="form-control"
+                id="userfield"
+                name="userfield"
+                formControlName="user"
+                [ngClass]="
+                  userField?.hasError('required') && userField?.dirty
+                    ? 'is-invalid'
+                    : ''
+                "
+              />
+
+              <p
+                *ngIf="userField?.hasError('required') && userField?.dirty"
+                class="text-danger"
+              >
+                Este campo es Obligatorio
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="mb-3">
+              <label class="text-muted" for="passwordfield">Contraseña</label>
+              <input
+                type="password"
+                class="form-control"
+                id="passwordfield"
+                name="passwordfield"
+                formControlName="password"
+                [ngClass]="
+                  passwordField?.hasError('required') && passwordField?.dirty
+                    ? 'is-invalid'
+                    : ''
+                "
+              />
+              <p
+                *ngIf="
+                  passwordField?.hasError('required') && passwordField?.dirty
+                "
+                class="text-danger"
+              >
+                Este campo es Obligatorio
+              </p>
+              <div class="d-flex justify-content-center">
+                <a href="security/forgotPasswordValidation"
+                  >¿Olvidaste tu Contraseña?</a
+                >
+              </div>
+            </div>
+            <div class="buttonvalidate mb-3 d-flex justify-content-center">
+              <button type="submit" class="btn btn-outline-primary btn-large">
+                Iniciar Sesion
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

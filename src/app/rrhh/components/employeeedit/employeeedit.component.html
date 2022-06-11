@@ -1,0 +1,220 @@
+<div class="container">
+  <div class="d-flex justify-content-center">
+    <div class="row initial">
+      <div class="col square">
+        <div class="d-flex justify-content-center">
+          <h1>Nuevo Empleado</h1>
+        </div>
+        <div class="d-flex justify-content-center">
+          <p>Ingresar un nuevo Empleado.</p>
+        </div>
+
+        <form [formGroup]="form" (ngSubmit)="submit($event)">
+          <div class="formlogin row">
+            <div class="col-6">
+              <label class="text-muted" for="useroralias">DPI</label>
+              <input
+                type="Text"
+                class="form-control"
+                id="dpiField"
+                name="dpiField"
+                formControlName="dpi"
+                [ngClass]="
+                  dpiField?.hasError('required') && dpiField?.dirty
+                    ? 'is-invalid'
+                    : ''
+                "
+              />
+
+              <p
+                *ngIf="dpiField?.hasError('required') && dpiField?.dirty"
+                class="text-danger"
+              >
+                Este campo es Obligatorio
+              </p>
+            </div>
+            <div class="col-6">
+              <label class="text-muted" for="useroralias"
+                >Nombre Completo</label
+              >
+              <input
+                type="Text"
+                class="form-control"
+                id="fullnameField"
+                name="fullnameField"
+                formControlName="fullname"
+                [ngClass]="
+                  fullnameField?.hasError('required') && fullnameField?.dirty
+                    ? 'is-invalid'
+                    : ''
+                "
+              />
+
+              <p
+                *ngIf="
+                  fullnameField?.hasError('required') && fullnameField?.dirty
+                "
+                class="text-danger"
+              >
+                Este campo es Obligatorio
+              </p>
+            </div>
+          </div>
+          <div class="formlogin row">
+            <div class="col-6">
+              <label class="text-muted" for="useroralias">Salario Base</label>
+              <input
+                type="number"
+                class="form-control"
+                id="baseSalaryField"
+                name="baseSalaryField"
+                formControlName="baseSalary"
+                (change)="changeBaseSalary()"
+                [ngClass]="
+                  baseSalaryField?.hasError('required') &&
+                  baseSalaryField?.dirty
+                    ? 'is-invalid'
+                    : ''
+                "
+              />
+
+              <p
+                *ngIf="
+                  baseSalaryField?.hasError('required') &&
+                  baseSalaryField?.dirty
+                "
+                class="text-danger"
+              >
+                Este campo es Obligatorio
+              </p>
+            </div>
+            <div class="col-6">
+              <label class="text-muted" for="useroralias">Total de Hijos</label>
+              <input
+                type="number"
+                class="form-control"
+                id="sonsField"
+                name="sonsField"
+                (change)="changesons()"
+                formControlName="sons"
+                [ngClass]="
+                  sonsField?.hasError('required') && sonsField?.dirty
+                    ? 'is-invalid'
+                    : ''
+                "
+              />
+
+              <p
+                *ngIf="sonsField?.hasError('required') && sonsField?.dirty"
+                class="text-danger"
+              >
+                Este campo es Obligatorio
+              </p>
+            </div>
+          </div>
+          <div class="formlogin row">
+            <div class="col-6">
+              <label class="text-muted" for="useroralias"
+                >Bono por Decreto</label
+              >
+              <input
+                type="number"
+                readonly
+                class="form-control"
+                id="decreeBondField"
+                name="decreeBondField"
+                formControlName="decreeBond"
+                [ngClass]="
+                  decreeBondField?.hasError('required') &&
+                  decreeBondField?.dirty
+                    ? 'is-invalid'
+                    : ''
+                "
+              />
+
+              <p
+                *ngIf="
+                  decreeBondField?.hasError('required') &&
+                  decreeBondField?.dirty
+                "
+                class="text-danger"
+              >
+                Este campo es Obligatorio
+              </p>
+            </div>
+            <div class="col-6">
+              <label class="text-muted" for="useroralias">IGSS</label>
+              <input
+                type="number"
+                readonly
+                class="form-control"
+                id="igssField"
+                name="igssField"
+                formControlName="igss"
+              />
+            </div>
+          </div>
+          <div class="formlogin row">
+            <div class="col-6">
+              <label class="text-muted" for="useroralias">IRTRA</label>
+              <input
+                type="number"
+                readonly
+                class="form-control"
+                id="irtraField"
+                name="irtraField"
+                formControlName="irtra"
+              />
+            </div>
+            <div class="col-6">
+              <label class="text-muted" for="useroralias"
+                >Bono de Parternidad</label
+              >
+              <input
+                type="number"
+                readonly
+                class="form-control"
+                id="paternityField"
+                name="paternityField"
+                formControlName="paternity"
+              />
+            </div>
+          </div>
+          <div class="formlogin row">
+            <div class="col-6">
+              <label class="text-muted" for="useroralias">Salario Total</label>
+              <input
+                type="number"
+                readonly
+                class="form-control"
+                id="totalSalaryField"
+                name="totalSalaryField"
+                formControlName="totalSalary"
+              />
+            </div>
+            <div class="col-6">
+              <label class="text-muted" for="useroralias"
+                >Salario Líquido</label
+              >
+              <input
+                type="number"
+                readonly
+                class="form-control"
+                id="liquidSalaryField"
+                name="liquidSalaryField"
+                formControlName="liquidSalary"
+              />
+            </div>
+          </div>
+          <div class="formlogin row">
+            <div class="d-flex justify-content-center">
+              <button type="submit" class="btn btn-outline-primary btn-lg">
+                Guardar
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

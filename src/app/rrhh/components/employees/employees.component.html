@@ -1,0 +1,78 @@
+<div class="container">
+  <div class="row">
+    <div class="col-10"><h1>Empleados</h1></div>
+    <div class="col">
+      <a
+        href="rrhh/employeeadd"
+        class="btn btn-outline-success"
+        style="margin-top: 6px"
+        >Nuevo Empleado</a
+      >
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>DPI</th>
+            <th>Nombre Completo</th>
+            <th>Número de hijos</th>
+            <th>Salario Base</th>
+            <th>Bono por Decreto</th>
+            <th>Creado por</th>
+            <th>Creado en</th>
+            <th>Salarios</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of employees">
+            <th scope="row">{{ item.id }}</th>
+            <td>{{ item.dpi }}</td>
+            <td>{{ item.fullName }}</td>
+            <td>{{ item.sons }}</td>
+            <td>{{ item.baseSalary }}</td>
+            <td>{{ item.decreeBond }}</td>
+            <td>{{ item.user.name }}</td>
+            <td>{{ item.createdAt }}</td>
+            <td>
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>IGSS</th>
+                    <th>IRTRA</th>
+                    <th>Bono de Parternidad</th>
+                    <th>Salario Total</th>
+                    <th>Salario Liquido</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let sla of item.wages">
+                    <th scope="row">{{ sla.id }}</th>
+                    <td>{{ sla.igss }}</td>
+                    <td>{{ sla.irtra }}</td>
+                    <td>{{ sla.paternityBonus }}</td>
+                    <td>{{ sla.totalSalary }}</td>
+                    <td>{{ sla.liquidSalary }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+            <td>
+              <a href="rrhh/employeeedit/{{ item.id }}">
+                <span class="material-symbols-outlined"> edit </span></a
+              >
+              <a style="color: #0d6efd" (click)="deleteEmployee(item)">
+                <span class="material-symbols-outlined"> delete </span></a
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
